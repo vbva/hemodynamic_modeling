@@ -1,0 +1,64 @@
+
+{
+	"total_time": 1.1,
+	"space_step": 2.5e-1,
+	"time_step":  1.0e-4,
+	"density": 7.95e-4,
+	"viscosity": 3.0e-5,
+	"CFL": 0.9,
+	"scheme_gamma": 0.0,
+	"alastruey_gamma": 2.0,
+	"vessel":
+	{
+		"vessel_0":
+		{
+			"length": 6.3,
+			"diameter": 0.6,
+			"pressure_diastolic": 82,
+			"perturbation_speed": 674.0,
+			"wall_thickness": 0.03,
+			"young_modulus": 5.25e3,
+			"stats_index": 0
+		},
+		"vessel_1":
+		{
+			"length": 6.3,
+			"diameter": 0.6,
+			"pressure_diastolic": 82,
+			"perturbation_speed": 674.0,
+			"wall_thickness": 0.03,
+			"young_modulus": 5.25e3,
+			"stats_index": 0
+		}
+	},
+	"bc_order": 2,
+	"bc":
+	{
+		"bc_0":
+		{
+			"bc_type": "inlet",
+			"vessel_index": 0,
+			"flux_type": "file",
+			"flux_type2": "analytics",
+			"analytics_index": 3,
+			"time_period": 1.1,
+			"flux_filename": "run/flux/q_carotid2.csv"
+		},
+		"bc_1":
+		{
+			"bc_type": "outlet",
+			"vessel_index": 1,
+			"outlet_type": "windkessel",
+			"outflow_pressure": 0.0,
+			"characteristic_impedance": 1.8658,
+			"total_peripheral_resistance": 14.0239,
+			"total_arterial_compliance": 0.0234
+		},
+		"bc_2":
+		{
+			"bc_type": "junction",
+			"vessel_index": "0;1"
+		}
+
+	}
+}
